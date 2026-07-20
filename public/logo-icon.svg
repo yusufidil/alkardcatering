@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none" stroke="none">
+  <style>
+    .steam {
+      stroke: currentColor;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      fill: none;
+      animation: steamAnim 2s infinite ease-in-out;
+    }
+    .steam-2 {
+      animation-delay: 0.6s;
+    }
+    @keyframes steamAnim {
+      0% { opacity: 0.3; transform: translateY(0); }
+      50% { opacity: 0.9; transform: translateY(-3px); }
+      100% { opacity: 0.3; transform: translateY(0); }
+    }
+  </style>
+
+  <!-- Rising Steam Lines -->
+  <path d="M35 25 C31 19 39 15 34 8" class="steam" />
+  <path d="M44 27 C40 21 48 16 43 10" class="steam steam-2" />
+
+  <!-- Pot Lid Knob -->
+  <rect x="44" y="24" width="6" height="4" rx="2" fill="currentColor" />
+
+  <!-- Pot Lid -->
+  <path d="M28 35 C28 28 66 28 66 35 Z" fill="currentColor" />
+
+  <!-- Pot Handles -->
+  <rect x="22" y="42" width="6" height="10" rx="2" fill="currentColor" />
+
+  <!-- Pot Main Body -->
+  <rect x="28" y="37" width="38" height="28" rx="3" fill="currentColor" />
+  <!-- Pot Vertical Stripe Accent -->
+  <rect x="33" y="43" width="3" height="16" rx="1.5" fill="#FFFFFF" opacity="0.25" />
+  <rect x="38" y="43" width="3" height="16" rx="1.5" fill="#FFFFFF" opacity="0.25" />
+
+  <!-- Truck Cab Front (Right side) -->
+  <path d="M66 43 L84 43 C88 43 92 46 95 50 L98 55 C100 58 100 60 100 65 L100 70 L66 70 Z" fill="currentColor" />
+
+  <!-- Windshield Window -->
+  <path d="M72 47 L84 47 C86 47 88 49 89 51 L91 56 L72 56 Z" fill="#FFFFFF" opacity="0.95" />
+
+  <!-- Truck Chassis Bottom Bar -->
+  <rect x="25" y="65" width="75" height="8" rx="2" fill="currentColor" />
+
+  <!-- Wheels (Rear X: 42, Front X: 80) -->
+  <!-- Rear Wheel Cutout & Wheel -->
+  <circle cx="42" cy="74" r="10" fill="currentColor" />
+  <circle cx="42" cy="74" r="4.5" fill="#FFFFFF" />
+
+  <!-- Front Wheel Cutout & Wheel -->
+  <circle cx="82" cy="74" r="10" fill="currentColor" />
+  <circle cx="82" cy="74" r="4.5" fill="#FFFFFF" />
+</svg>
