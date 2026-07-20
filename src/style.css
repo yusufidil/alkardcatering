@@ -106,13 +106,27 @@ button { font-family: inherit; cursor: pointer; }
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
   transition: color 0.3s, transform 0.35s var(--ease), filter 0.3s;
 }
+.logo-truck-svg .windshield,
+.logo-truck-svg .wheel-hub {
+  fill: var(--navy-dark);
+  transition: fill 0.3s;
+}
+.logo-truck-svg .pot-stripe {
+  fill: var(--navy-dark);
+  opacity: 0.4;
+  transition: fill 0.3s;
+}
 .header.scrolled .logo-truck-svg {
   color: var(--navy);
   filter: none;
 }
-.header.scrolled .windshield,
-.header.scrolled .wheel-hub {
+.header.scrolled .logo-truck-svg .windshield,
+.header.scrolled .logo-truck-svg .wheel-hub {
   fill: var(--white);
+}
+.header.scrolled .logo-truck-svg .pot-stripe {
+  fill: var(--white);
+  opacity: 0.4;
 }
 
 /* Steam Animation */
