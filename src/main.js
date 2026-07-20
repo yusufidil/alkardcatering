@@ -123,29 +123,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── 7. QUOTE MODAL ──────────────────────────────────────
-  const quoteModal  = document.getElementById('quoteModal');
-  const modalClose  = document.getElementById('modalClose');
+  // ── 7. EXTERIOR PHOTO SLIDER (ŞİRKET DIŞ MEKAN SLİDER'I) ──
+  const slides = document.querySelectorAll('.slide');
+  const dots   = document.querySelectorAll('.dot');
+  const prevBtn = document.getElementById('sliderPrev');
+  const nextBtn = document.getElementById('sliderNext');
+  let currentSlide = 0;
+  let sliderTimer = null;
 
-  document.querySelectorAll('.open-modal').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.preventDefault();
-      quoteModal.classList.add('active');
+  function showSlide(index) {
+    if (slides.length === 0) return;
+    if (index >= slides.length) currentSlide = 0;
+    else if (index < 0) currentSlide = slides.length - 1;
+    else currentSlide = index;
+
+    slides.forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+    dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+  }
+
+  function startAutoSlide() {
+    stopAutoSlide();
+    sliderTimer = setInterval(() => {
+      showSlide(currentSlide + 1);
+    }, 4000); // 4 saniyede bir otomatik geçiş
+  }
+
+  function stopAutoSlide() {
+    if (sliderTimer) clearInterval(sliderTimer);
+  }
+
+  prevBtn?.addEventListener('click', () => {
+    showSlide(currentSlide - 1);
+    startAutoSlide();
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    showSlide(currentSlide + 1);
+    startAutoSlide();
+  });
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const idx = parseInt(dot.dataset.index, 10);
+      showSlide(idx);
+      startAutoSlide();
     });
   });
 
-  modalClose?.addEventListener('click', () => quoteModal.classList.remove('active'));
-  quoteModal?.addEventListener('click', e => { if (e.target === quoteModal) quoteModal.classList.remove('active'); });
-
-  // ── 8. FORM SUBMIT ──────────────────────────────────────
-  function handleSubmit(e) {
-    e.preventDefault();
-    alert('Teşekkürler! Talebiniz alındı. Temsilcimiz en kısa sürede sizi arayacak.');
-    e.target.reset();
-    quoteModal.classList.remove('active');
-  }
-
-  document.getElementById('contactForm')?.addEventListener('submit', handleSubmit);
-  document.getElementById('modalForm')?.addEventListener('submit', handleSubmit);
+  // Start slider
+  startAutoSlide();
 
 });

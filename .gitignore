@@ -23,5 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-# Placeholder images (kullanıcı kendi fotoğraflarını ekleyecek)
-public/images/
+# Placeholder images
+public/images/*
+!public/images/exterior_1.jpeg
+!public/images/exterior_2.jpeg
