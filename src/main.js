@@ -21,66 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => { mobileNav.style.display = 'none'; });
   });
 
-  // ── 3. DAILY MENU TABS ─────────────────────────────────
-  const menus = {
-    pazartesi: { title: 'Pazartesi', kcal: '820 Kcal', courses: [
-      { lbl: '1. Kap — Çorba',    dish: 'Ezogelin Çorbası' },
-      { lbl: '2. Kap — Ana Yemek', dish: 'İnegöl Köfte & Izgara Domates' },
-      { lbl: '3. Kap — Yardımcı', dish: 'Tereyağlı Şehriyeli Pirinç Pilavı' },
-      { lbl: '4. Kap — Tatlı / Salata', dish: 'Mevsim Salatası veya Cacık' }
-    ]},
-    sali: { title: 'Salı', kcal: '850 Kcal', courses: [
-      { lbl: '1. Kap — Çorba',    dish: 'Süzme Mercimek Çorbası' },
-      { lbl: '2. Kap — Ana Yemek', dish: 'Fırında Sebzeli Tavuk Pirzola' },
-      { lbl: '3. Kap — Yardımcı', dish: 'Nohutlu Bulgur Pilavı' },
-      { lbl: '4. Kap — Tatlı / Salata', dish: 'Geleneksel Fırın Sütlaç' }
-    ]},
-    carsamba: { title: 'Çarşamba', kcal: '810 Kcal', courses: [
-      { lbl: '1. Kap — Çorba',    dish: 'Süzme Tarhana Çorbası' },
-      { lbl: '2. Kap — Ana Yemek', dish: 'Dana Tas Kebabı & Patates Püresi' },
-      { lbl: '3. Kap — Yardımcı', dish: 'Fesleğenli Napoliten Makarna' },
-      { lbl: '4. Kap — Tatlı / Salata', dish: 'Akdeniz Yeşillikleri Salatası' }
-    ]},
-    persembe: { title: 'Perşembe', kcal: '880 Kcal', courses: [
-      { lbl: '1. Kap — Çorba',    dish: 'Nane Yağlı Yayla Çorbası' },
-      { lbl: '2. Kap — Ana Yemek', dish: 'Etli Kuru Fasulye (Geleneksel)' },
-      { lbl: '3. Kap — Yardımcı', dish: 'Tereyağlı Pirinç Pilavı' },
-      { lbl: '4. Kap — Tatlı / Salata', dish: 'Turşu & Ev Yapımı Cacık' }
-    ]},
-    cuma: { title: 'Cuma', kcal: '910 Kcal', courses: [
-      { lbl: '1. Kap — Çorba',    dish: 'Közlenmiş Domates Çorbası' },
-      { lbl: '2. Kap — Ana Yemek', dish: 'Fırında Etli Orman Kebabı' },
-      { lbl: '3. Kap — Yardımcı', dish: 'Peynirli Su Böreği' },
-      { lbl: '4. Kap — Tatlı / Salata', dish: 'Cevizli Baklava veya Mevsim Meyvesi' }
-    ]}
-  };
-
-  const menuCoursesEl = document.getElementById('menuCourses');
-  const menuKcalEl    = document.getElementById('menuKcal');
-  const menuTabBtns   = document.querySelectorAll('.menu-tab-btn');
-
-  function renderMenu(key) {
-    const data = menus[key] || menus.pazartesi;
-    menuCoursesEl.innerHTML = data.courses.map(c => `
-      <div class="course-col">
-        <span class="course-type-lbl">${c.lbl}</span>
-        <div class="course-dish">${c.dish}</div>
-      </div>
-    `).join('');
-    menuKcalEl.textContent = `Ortalama enerji: ${data.kcal}`;
-  }
-
-  renderMenu('pazartesi');
-
-  menuTabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      menuTabBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderMenu(btn.dataset.day);
-    });
-  });
-
-  // ── 4. GALLERY FILTER ───────────────────────────────────
+  // ── 3. GALLERY FILTER ───────────────────────────────────
   const galFilters = document.querySelectorAll('.gal-filter');
   const galItems   = document.querySelectorAll('.g-item');
 
