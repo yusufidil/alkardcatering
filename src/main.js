@@ -1,117 +1,128 @@
-// Alkard Catering — Kurumsal Web Sitesi Etkileşim Kodu
+// Alkard Catering — Main JS
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ── 1. HEADER SCROLL EFFECT ─────────────────────────────
-  const header = document.getElementById('header');
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 60);
-  }, { passive: true });
+  // ── 1. MOBILE MENU TOGGLE ────────────────────────────────
+  const toggle = document.getElementById('mobileToggle');
+  const menu   = document.getElementById('mobileMenu');
+  toggle?.addEventListener('click', () => menu?.classList.toggle('open'));
+  menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
 
-  // ── 2. MOBILE NAVIGATION ────────────────────────────────
-  const mobileToggle = document.getElementById('mobileToggle');
-  const mobileNav    = document.getElementById('mobileNav');
+  // ── 2. HOME GALLERY CAROUSEL ─────────────────────────────
+  const gSlides = document.querySelectorAll('.g-slide-item');
+  const gPrev   = document.getElementById('gPrev');
+  const gNext   = document.getElementById('gNext');
+  let gIndex = 0;
 
-  mobileToggle?.addEventListener('click', () => {
-    const open = mobileNav.style.display === 'flex';
-    mobileNav.style.display = open ? 'none' : 'flex';
-  });
+  function showGSlide(idx) {
+    if (!gSlides.length) return;
+    gSlides[gIndex].classList.remove('active');
+    gIndex = (idx + gSlides.length) % gSlides.length;
+    gSlides[gIndex].classList.add('active');
+  }
 
-  mobileNav?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => { mobileNav.style.display = 'none'; });
-  });
+  gPrev?.addEventListener('click', () => showGSlide(gIndex - 1));
+  gNext?.addEventListener('click', () => showGSlide(gIndex + 1));
 
-  // ── 3. GALLERY FILTER ───────────────────────────────────
-  const galFilters = document.querySelectorAll('.gal-filter');
-  const galItems   = document.querySelectorAll('.g-item');
+  if (gSlides.length > 1) {
+    setInterval(() => showGSlide(gIndex + 1), 4500);
+  }
 
-  galFilters.forEach(btn => {
+  // ── 3. FACILITY SLIDER (KONUM & TESİSİMİZ SLİDER) ────────
+  const fSlides = document.querySelectorAll('.facility-slide');
+  const fDots   = document.querySelectorAll('.fdot');
+  const fPrev   = document.getElementById('fPrev');
+  const fNext   = document.getElementById('fNext');
+  let fIndex = 0;
+
+  function showFSlide(idx) {
+    if (!fSlides.length) return;
+    fSlides[fIndex].classList.remove('active');
+    fDots[fIndex]?.classList.remove('active');
+
+    fIndex = (idx + fSlides.length) % fSlides.length;
+
+    fSlides[fIndex].classList.add('active');
+    fDots[fIndex]?.classList.add('active');
+  }
+
+  fPrev?.addEventListener('click', () => showFSlide(fIndex - 1));
+  fNext?.addEventListener('click', () => showFSlide(fIndex + 1));
+  fDots.forEach((dot, idx) => dot.addEventListener('click', () => showFSlide(idx)));
+
+  if (fSlides.length > 1) {
+    setInterval(() => showFSlide(fIndex + 1), 4000);
+  }
+
+  // ── 4. FORM SUBMIT ───────────────────────────────────────
+  const handleFormSubmit = (formId, adId, telId, hizmetId, mesajId) => {
+    const form = document.getElementById(formId);
+    form?.addEventListener('submit', e => {
+      e.preventDefault();
+      const ad     = document.getElementById(adId)?.value.trim() || '';
+      const tel    = document.getElementById(telId)?.value.trim() || '';
+      const hizmet = document.getElementById(hizmetId)?.value || '';
+      const mesaj  = document.getElementById(mesajId)?.value.trim() || '';
+      if (!ad || !tel) {
+        alert('Lütfen Ad/Firma ve Telefon bilgilerini doldurunuz.');
+        return;
+      }
+      const text = encodeURIComponent(`Merhaba Alkard Yemek, teklif almak istiyorum.\n\nAd/Firma: ${ad}\nTelefon: ${tel}\nHizmet: ${hizmet}\nMesaj: ${mesaj}`);
+      window.open(`https://wa.me/905320000000?text=${text}`, '_blank');
+    });
+  };
+
+  handleFormSubmit('teklifForm', 'ad', 'tel', 'hizmet', 'mesaj');
+  handleFormSubmit('teklifFormPage', 'adPage', 'telPage', 'hizmetPage', 'mesajPage');
+
+  // ── 5. GALLERY FILTERING & LIGHTBOX MODAL ────────────────
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const galleryItems = document.querySelectorAll('.g-item');
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbClose = document.getElementById('lbClose');
+
+  filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      galFilters.forEach(b => b.classList.remove('active'));
+      filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      galItems.forEach(item => {
-        const show = filter === 'all' || item.dataset.category === filter;
-        item.style.display = show ? 'block' : 'none';
+
+      const filter = btn.getAttribute('data-filter');
+      galleryItems.forEach(item => {
+        const cat = item.getAttribute('data-cat');
+        if (filter === 'all' || cat === filter) {
+          item.style.display = 'block';
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'scale(1)';
+          }, 30);
+        } else {
+          item.style.opacity = '0';
+          item.style.transform = 'scale(0.92)';
+          setTimeout(() => {
+            item.style.display = 'none';
+          }, 250);
+        }
       });
     });
   });
 
-  // ── 5. LIGHTBOX ─────────────────────────────────────────
-  const lightbox  = document.getElementById('lightbox');
-  const lbImg     = document.getElementById('lbImg');
-  const lbCaption = document.getElementById('lbCaption');
-  const lbClose   = document.getElementById('lbClose');
-
-  galItems.forEach(item => {
+  galleryItems.forEach(item => {
     item.addEventListener('click', () => {
-      lbImg.src         = item.dataset.src || item.querySelector('img')?.src || '';
-      lbImg.alt         = item.dataset.caption || '';
-      lbCaption.textContent = item.dataset.caption || '';
-      lightbox.classList.add('active');
+      const src = item.getAttribute('data-src') || item.querySelector('img')?.src;
+      if (src && lightbox && lbImg) {
+        lbImg.src = src;
+        lightbox.classList.add('active');
+      }
     });
   });
 
-  lbClose?.addEventListener('click', () => lightbox.classList.remove('active'));
-  lightbox?.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('active'); });
-
-  // ── 6. FAQ ACCORDION ────────────────────────────────────
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.querySelector('.faq-trigger')?.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-      if (!isActive) item.classList.add('active');
-    });
+  lbClose?.addEventListener('click', () => lightbox?.classList.remove('active'));
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) lightbox.classList.remove('active');
   });
-
-  // ── 7. EXTERIOR PHOTO SLIDER (ŞİRKET DIŞ MEKAN SLİDER'I) ──
-  const slides = document.querySelectorAll('.slide');
-  const dots   = document.querySelectorAll('.dot');
-  const prevBtn = document.getElementById('sliderPrev');
-  const nextBtn = document.getElementById('sliderNext');
-  let currentSlide = 0;
-  let sliderTimer = null;
-
-  function showSlide(index) {
-    if (slides.length === 0) return;
-    if (index >= slides.length) currentSlide = 0;
-    else if (index < 0) currentSlide = slides.length - 1;
-    else currentSlide = index;
-
-    slides.forEach((s, i) => s.classList.toggle('active', i === currentSlide));
-    dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
-  }
-
-  function startAutoSlide() {
-    stopAutoSlide();
-    sliderTimer = setInterval(() => {
-      showSlide(currentSlide + 1);
-    }, 4000); // 4 saniyede bir otomatik geçiş
-  }
-
-  function stopAutoSlide() {
-    if (sliderTimer) clearInterval(sliderTimer);
-  }
-
-  prevBtn?.addEventListener('click', () => {
-    showSlide(currentSlide - 1);
-    startAutoSlide();
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') lightbox?.classList.remove('active');
   });
-
-  nextBtn?.addEventListener('click', () => {
-    showSlide(currentSlide + 1);
-    startAutoSlide();
-  });
-
-  dots.forEach(dot => {
-    dot.addEventListener('click', () => {
-      const idx = parseInt(dot.dataset.index, 10);
-      showSlide(idx);
-      startAutoSlide();
-    });
-  });
-
-  // Start slider
-  startAutoSlide();
 
 });

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri | Alkard Yemek Catering İnegöl</title>
+  <meta name="description" content="Modern üretim tesisimiz, leziz yemeklerimiz ve organizasyonlarımızdan fotoğraflar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Raleway:wght@400;600;700;800;900&family=Barlow:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<header id="header" class="site-header scrolled">
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 200 135" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 28 C 42 18 54 12 46 2" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+          <path d="M 62 32 C 54 22 66 16 58 6" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+          <circle cx="94" cy="18" r="5.5" fill="currentColor"/>
+          <path d="M 48 40 Q 94 24 140 38 Q 94 30 48 40 Z" fill="currentColor"/>
+          <rect x="36" y="54" width="6" height="22" rx="2.5" fill="currentColor"/>
+          <rect x="48" y="46" width="68" height="52" rx="3" fill="currentColor"/>
+          <rect x="57" y="56" width="6" height="32" rx="3" fill="#fff"/>
+          <rect x="69" y="56" width="6" height="32" rx="3" fill="#fff"/>
+          <rect x="116" y="54" width="12" height="6" rx="2" fill="currentColor"/>
+          <rect x="116" y="60" width="12" height="38" fill="#fff"/>
+          <path d="M 128 46 L 150 46 Q 162 46 172 62 L 176 74 L 176 98 L 128 98 Z" fill="currentColor"/>
+          <path d="M 138 52 L 148 52 Q 156 52 163 64 L 138 64 Z" fill="#fff"/>
+          <rect x="48" y="94" width="128" height="4" fill="currentColor"/>
+          <circle cx="74" cy="104" r="14" fill="currentColor"/>
+          <circle cx="74" cy="104" r="6" fill="#fff"/>
+          <circle cx="150" cy="104" r="14" fill="currentColor"/>
+          <circle cx="150" cy="104" r="6" fill="#fff"/>
+        </svg>
+      </div>
+      <div class="logo-texts">
+        <span class="logo-name">ALKARD YEMEK</span>
+        <span class="logo-catering">Catering</span>
+      </div>
+    </a>
+
+    <nav class="site-nav">
+      <ul>
+        <li><a href="/" class="nav-link">ANA SAYFA</a></li>
+        <li><a href="/hakkimizda.html" class="nav-link">HAKKIMIZDA</a></li>
+        <li><a href="/hizmetler.html" class="nav-link">HİZMETLER</a></li>
+        <li><a href="/galeri.html" class="nav-link active">GALERİ</a></li>
+        <li><a href="/belgeler.html" class="nav-link">BELGELER</a></li>
+        <li><a href="/teklif.html" class="nav-link">TEKLİF AL</a></li>
+        <li><a href="/iletisim.html" class="nav-link">İLETİŞİM</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- PAGE HERO BANNER -->
+<section class="page-hero" style="background-image: url('/images/slide1.jpg');">
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <h1 class="bold-heading">ALKARD YEMEK</h1>
+    <span class="script-text">Fotoğraf Galerisi</span>
+    <p class="hero-subtitle">Modern üretim tesisimiz, leziz yemeklerimiz ve organizasyonlarımızdan kareler</p>
+  </div>
+</section>
+
+<!-- GALLERY SECTION -->
+<section class="gallery-page-section">
+  <div class="container">
+    <div class="gallery-header-block">
+      <span class="section-tag-heavy">GÖRSEL ARŞİVİMİZ</span>
+      <h2 class="section-heading">TESİS & LEZZET GALERİSİ</h2>
+      <div class="star-divider dark"><span class="star">✦</span></div>
+    </div>
+
+    <!-- FILTER BUTTONS -->
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all">TÜMÜ</button>
+      <button class="filter-btn" data-filter="yemekler">YEMEKLERİMİZ</button>
+      <button class="filter-btn" data-filter="uretim">ÜRETİM TESİSİ</button>
+      <button class="filter-btn" data-filter="sevkiyat">TESİS & FİLO</button>
+      <button class="filter-btn" data-filter="organizasyon">ORGANİZASYONLAR</button>
+    </div>
+
+    <!-- GALLERY GRID -->
+    <div class="full-gallery-grid" id="galleryGrid">
+      <div class="g-item wide" data-cat="yemekler" data-src="/images/hot_food_spread.png">
+        <img src="/images/hot_food_spread.png" alt="Ziyafet ve Sıcak Yemek Büfesi" loading="lazy">
+        <div class="g-overlay">
+          <span>Yemeklerimiz</span>
+          <h4>Ziyafet & Sıcak Yemek Açık Büfe Menüleri</h4>
+        </div>
+      </div>
+
+      <div class="g-item" data-cat="uretim" data-src="/images/industrial_kitchen_hygiene.png">
+        <img src="/images/industrial_kitchen_hygiene.png" alt="Paslanmaz Endüstriyel Mutfak" loading="lazy">
+        <div class="g-overlay">
+          <span>Üretim Tesisi</span>
+          <h4>Paslanmaz Çelik Pişirme Kazanları</h4>
+        </div>
+      </div>
+
+      <div class="g-item" data-cat="uretim" data-src="/images/hero_catering_kitchen.png">
+        <img src="/images/hero_catering_kitchen.png" alt="Şefler Mutfakta" loading="lazy">
+        <div class="g-overlay">
+          <span>Üretim Tesisi</span>
+          <h4>Profesyonel Mutfak Ekibi & Hazırlık</h4>
+        </div>
+      </div>
+
+      <div class="g-item" data-cat="sevkiyat" data-src="/images/bina1.jpg">
+        <img src="/images/bina1.jpg" alt="Alkard Yemek Hizmet Binası" loading="lazy">
+        <div class="g-overlay">
+          <span>Tesis & Filo</span>
+          <h4>İnegöl OSB Hizmet Binası</h4>
+        </div>
+      </div>
+
+      <div class="g-item wide" data-cat="sevkiyat" data-src="/images/bina2.jpg">
+        <img src="/images/bina2.jpg" alt="Hizmet Binamız ve Taşıma Araçları" loading="lazy">
+        <div class="g-overlay">
+          <span>Tesis & Filo</span>
+          <h4>Hizmet Binamız & Sıcak Taşıma Araç Filosu</h4>
+        </div>
+      </div>
+
+      <div class="g-item" data-cat="yemekler" data-src="/images/slide1.jpg">
+        <img src="/images/slide1.jpg" alt="Günlük Sıcak Tabldot Yemek" loading="lazy">
+        <div class="g-overlay">
+          <span>Yemeklerimiz</span>
+          <h4>Diyetisyen Onaylı Tabldot Menü Çeşitleri</h4>
+        </div>
+      </div>
+
+      <div class="g-item" data-cat="organizasyon" data-src="/images/slide2.jpg">
+        <img src="/images/slide2.jpg" alt="Düğün ve Nişan Catering Servisi" loading="lazy">
+        <div class="g-overlay">
+          <span>Organizasyonlar</span>
+          <h4>Özel Gün & Düğün Catering Hizmetleri</h4>
+        </div>
+      </div>
+
+      <div class="g-item" data-cat="uretim" data-src="/images/hizmetler.jpg">
+        <img src="/images/hizmetler.jpg" alt="Taze Gıda Hazırlık Departmanı" loading="lazy">
+        <div class="g-overlay">
+          <span>Üretim Tesisi</span>
+          <h4>Günlük Taze Gıda Hazırlık Departmanı</h4>
+        </div>
+      </div>
+
+      <div class="g-item" data-cat="yemekler" data-src="/images/galeri1.jpg">
+        <img src="/images/galeri1.jpg" alt="Sıcak Çorba ve Ana Yemekler" loading="lazy">
+        <div class="g-overlay">
+          <span>Yemeklerimiz</span>
+          <h4>Sıcak Çorba ve Etsiz/Etli Ana Yemekler</h4>
+        </div>
+      </div>
+
+      <div class="g-item wide" data-cat="organizasyon" data-src="/images/galeri2.jpg">
+        <img src="/images/galeri2.jpg" alt="Kurumsal Gala ve Lansman" loading="lazy">
+        <div class="g-overlay">
+          <span>Organizasyonlar</span>
+          <h4>Kurumsal Gala & Lansman Ziyafet Organizasyonları</h4>
+        </div>
+      </div>
+
+      <div class="g-item" data-cat="yemekler" data-src="/images/galeri3.jpg">
+        <img src="/images/galeri3.jpg" alt="Zengin Salata ve Meze Çeşitleri" loading="lazy">
+        <div class="g-overlay">
+          <span>Yemeklerimiz</span>
+          <h4>Zengin Salata ve Taze Meze Çeşitleri</h4>
+        </div>
+      </div>
+
+      <div class="g-item" data-cat="uretim" data-src="/images/hakkimizda.jpg">
+        <img src="/images/hakkimizda.jpg" alt="Gıda Hijyen Kontrolü" loading="lazy">
+        <div class="g-overlay">
+          <span>Üretim Tesisi</span>
+          <h4>Gıda Hijyen Kontrol Laboratuvarı</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX MODAL -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose" aria-label="Kapat">&times;</button>
+  <img src="" alt="Büyütülmüş Görsel" id="lbImg">
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-top-grid">
+      <div class="footer-col">
+        <div class="footer-brand-box">
+          <div class="logo-icon" style="width:52px; height:40px; color:#fff;">
+            <svg viewBox="0 0 200 135" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 50 28 C 42 18 54 12 46 2" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+              <path d="M 62 32 C 54 22 66 16 58 6" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+              <circle cx="94" cy="18" r="5.5" fill="currentColor"/>
+              <path d="M 48 40 Q 94 24 140 38 Q 94 30 48 40 Z" fill="currentColor"/>
+              <rect x="36" y="54" width="6" height="22" rx="2.5" fill="currentColor"/>
+              <rect x="48" y="46" width="68" height="52" rx="3" fill="currentColor"/>
+              <rect x="57" y="56" width="6" height="32" rx="3" fill="#fff"/>
+              <rect x="69" y="56" width="6" height="32" rx="3" fill="#fff"/>
+              <rect x="116" y="54" width="12" height="6" rx="2" fill="currentColor"/>
+              <rect x="116" y="60" width="12" height="38" fill="#fff"/>
+              <path d="M 128 46 L 150 46 Q 162 46 172 62 L 176 74 L 176 98 L 128 98 Z" fill="currentColor"/>
+              <path d="M 138 52 L 148 52 Q 156 52 163 64 L 138 64 Z" fill="#fff"/>
+              <rect x="48" y="94" width="128" height="4" fill="currentColor"/>
+              <circle cx="74" cy="104" r="14" fill="currentColor"/>
+              <circle cx="150" cy="104" r="14" fill="currentColor"/>
+            </svg>
+          </div>
+          <div>
+            <div class="footer-logo-name">ALKARD YEMEK</div>
+            <div class="footer-logo-catering">Catering</div>
+          </div>
+        </div>
+        <p class="footer-desc-text">
+          Bursa İnegöl Organize Sanayi Bölgesi'nde hijyenik koşullarda hazırlanan günlük sıcak toplu yemek, fabrika yemeği ve catering hizmetlerinde güvenilir çözüm ortağınız.
+        </p>
+        <div class="footer-social-icons">
+          <a href="#" class="social-icon-btn" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://wa.me/905320000000" class="social-icon-btn" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">HIZLI MENÜ</h4>
+        <div class="footer-links-list">
+          <a href="/">Ana Sayfa</a>
+          <a href="/hakkimizda.html">Hakkımızda</a>
+          <a href="/hizmetler.html">Hizmetlerimiz</a>
+          <a href="/galeri.html">Galeri</a>
+          <a href="/belgeler.html">Belgelerimiz</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">HİZMETLERİMİZ</h4>
+        <div class="footer-links-list">
+          <a href="/hizmetler.html">Fabrika Yemeği</a>
+          <a href="/hizmetler.html">Düğün & Ziyafet</a>
+          <a href="/hizmetler.html">Kurumsal Gala</a>
+          <a href="/hizmetler.html">Taşımalı Sıcak Yemek</a>
+          <a href="/teklif.html">Online Teklif Al</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">İLETİŞİM</h4>
+        <div class="footer-contact-info">
+          <p><strong>Adres:</strong> OSB 2. Cadde No: 14 İnegöl / Bursa</p>
+          <p><strong>Telefon:</strong> 0224 711 00 00</p>
+          <p><strong>WhatsApp:</strong> 0532 000 00 00</p>
+          <p><strong>E-Posta:</strong> info@alkardyemek.com</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <span>© 2026 Alkard Yemek Catering. Tüm Hakları Saklıdır.</span>
+      <span>Bursa İnegöl Toplu Yemek Çözümleri</span>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:+902247110000" class="fab fab-phone" aria-label="Bizi Arayın">
+  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.21 12 19.79 19.79 0 0 1 1.14 3.4 2 2 0 0 1 3.11 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+</a>
+<a href="https://wa.me/905320000000" target="_blank" rel="noopener" class="fab fab-whatsapp" aria-label="WhatsApp">
+  <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
